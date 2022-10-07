@@ -11,5 +11,4 @@ Requirements:
 * Must be safe
   * Over voltage protection
   * Over temperature prevention
-  * Automatic power off
   * Food grade plastics

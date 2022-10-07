@@ -1,4 +1,158 @@
-EESchema Schematic File Version 2
-EELAYER 25 0
+EESchema Schematic File Version 4
+EELAYER 30 0
 EELAYER END
+$Descr A4 11693 8268
+encoding utf-8
+Sheet 1 1
+Title ""
+Date ""
+Rev ""
+Comp ""
+Comment1 ""
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+$Comp
+L Relay:SRD-05VDC-SL-C K1
+U 1 1 633F9CB5
+P 2950 2850
+F 0 "K1" H 2950 2975 50  0000 C CNN
+F 1 "SRD-05VDC-SL-C" H 2950 2884 50  0000 C CNN
+F 2 "" H 2950 2850 50  0001 C CNN
+F 3 "" H 2950 2850 50  0001 C CNN
+	1    2950 2850
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:VAC #PWR?
+U 1 1 633FAD3B
+P 2200 3100
+F 0 "#PWR?" H 2200 3000 50  0001 C CNN
+F 1 "VAC" H 2200 3375 50  0000 C CNN
+F 2 "" H 2200 3100 50  0001 C CNN
+F 3 "" H 2200 3100 50  0001 C CNN
+	1    2200 3100
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2200 3100 2500 3100
+$Comp
+L Switch:SW_Push_LED SW1
+U 1 1 633FF0A5
+P 1200 1500
+F 0 "SW1" H 1200 1350 50  0000 C CNN
+F 1 "SW_Push_LED" H 1200 1250 50  0000 C CNN
+F 2 "" H 1200 1800 50  0001 C CNN
+F 3 "~" H 1200 1800 50  0001 C CNN
+	1    1200 1500
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	1000 950  1000 1400
+Wire Wire Line
+	2500 2950 2500 2500
+Connection ~ 2150 950 
+Wire Wire Line
+	2150 950  1000 950 
+$Comp
+L ECE:RES R2
+U 1 1 63410C05
+P 1650 1500
+F 0 "R2" H 1650 1400 40  0000 C CNN
+F 1 "220R" H 1650 1350 40  0000 C CNN
+F 2 "" H 1650 1570 30  0000 C CNN
+F 3 "" V 1650 1500 30  0000 C CNN
+	1    1650 1500
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 63411898
+P 900 1850
+F 0 "#PWR?" H 900 1600 50  0001 C CNN
+F 1 "GND" H 905 1677 50  0000 C CNN
+F 2 "" H 900 1850 50  0001 C CNN
+F 3 "" H 900 1850 50  0001 C CNN
+	1    900  1850
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	1000 1500 900  1500
+Wire Wire Line
+	900  1500 900  1850
+NoConn ~ 3400 3200
+$Comp
+L power:GND #PWR?
+U 1 1 63412AC1
+P 2500 3250
+F 0 "#PWR?" H 2500 3000 50  0001 C CNN
+F 1 "GND" H 2505 3077 50  0000 C CNN
+F 2 "" H 2500 3250 50  0001 C CNN
+F 3 "" H 2500 3250 50  0001 C CNN
+	1    2500 3250
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	1900 1500 1950 1500
+Wire Wire Line
+	1950 1500 1950 2500
+Wire Wire Line
+	3400 2500 2500 2500
+Connection ~ 2500 2500
+Wire Wire Line
+	1950 2500 2500 2500
+Wire Wire Line
+	3000 1600 3000 1750
+Wire Wire Line
+	3000 1750 3400 1750
+Wire Wire Line
+	3400 1750 3400 2500
+Wire Wire Line
+	3000 1200 3000 950 
+$Comp
+L power:+12V #PWR?
+U 1 1 6342D218
+P 3000 700
+F 0 "#PWR?" H 3000 550 50  0001 C CNN
+F 1 "+12V" H 3015 873 50  0000 C CNN
+F 2 "" H 3000 700 50  0001 C CNN
+F 3 "" H 3000 700 50  0001 C CNN
+	1    3000 700 
+	1    0    0    -1  
+$EndComp
+$Comp
+L ECE:RES R1
+U 1 1 6342DB4B
+P 2550 700
+F 0 "R1" H 2550 600 40  0000 C CNN
+F 1 "62R" H 2550 550 40  0000 C CNN
+F 2 "" H 2550 770 30  0000 C CNN
+F 3 "" V 2550 700 30  0000 C CNN
+	1    2550 700 
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2150 950  3000 950 
+Wire Wire Line
+	3000 700  2800 700 
+Wire Wire Line
+	2300 700  2150 700 
+Wire Wire Line
+	2150 700  2150 950 
+$Comp
+L Transistor_BJT:2N3904 Q?
+U 1 1 63430491
+P 2900 1400
+F 0 "Q?" H 3090 1446 50  0000 L CNN
+F 1 "2N3904" H 3090 1355 50  0000 L CNN
+F 2 "Package_TO_SOT_THT:TO-92_Inline" H 3100 1325 50  0001 L CIN
+F 3 "https://www.onsemi.com/pub/Collateral/2N3903-D.PDF" H 2900 1400 50  0001 L CNN
+	1    2900 1400
+	1    0    0    -1  
+$EndComp
+Text Notes 1750 2500 2    50   ~ 0
+Feedback loop self powers Q2\nso Q1 remains open when SW1\nis open
+Wire Wire Line
+	1400 1400 2700 1400
 $EndSCHEMATC
